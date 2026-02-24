@@ -1,39 +1,22 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import java.util.Scanner;
-
-public class PalindromeChecker {
-
-    // Method to check palindrome
-    public static boolean isPalindrome(String str) {
-        // Remove spaces and convert to lowercase
-        str = str.replaceAll("\\s+", "").toLowerCase();
-
-        int left = 0;
-        int right = str.length() - 1;
-
-        while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
-    }
+public class UseCase3 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a word or phrase: ");
-        String input = scanner.nextLine();
+        String word = "racecar";
 
-        if (isPalindrome(input)) {
-            System.out.println("✅ It is a palindrome!");
-        } else {
-            System.out.println("❌ It is not a palindrome.");
+        String reversed = "";
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed += word.charAt(i);
         }
 
-        scanner.close();
+        if (word.equals(reversed)) {
+            System.out.println("Word: " + word);
+            System.out.println("Result: It IS a palindrome.");
+        } else {
+            System.out.println("Word: " + word);
+            System.out.println("Result: It is NOT a palindrome.");
+        }
     }
 }
