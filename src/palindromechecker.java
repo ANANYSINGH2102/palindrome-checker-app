@@ -1,30 +1,31 @@
-public class palindromechecker {
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class UseCase6{
 
     public static void main(String[] args) {
 
-        String word = "level";
+        String input = "civic";
 
-        char[] letters = word.toCharArray();
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
 
-        int start = 0;
-        int end = letters.length - 1;
+        for (char c : input.toCharArray()) {
+            queue.add(c);
+            stack.push(c);
+        }
+
         boolean isPalindrome = true;
 
-        while (start < end) {
-            if (letters[start] != letters[end]) {
+        while (!queue.isEmpty()) {
+            if (queue.remove() != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
 
-        if (isPalindrome) {
-            System.out.println("Word: " + word);
-            System.out.println("Result: It IS a palindrome.");
-        } else {
-            System.out.println("Word: " + word);
-            System.out.println("Result: It is NOT a palindrome.");
-        }
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
